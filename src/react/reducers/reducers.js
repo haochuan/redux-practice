@@ -48,6 +48,9 @@ function todos(state = [], action) {
         case ADD_TODO:
             return [
                 // TODO: have notes on this ...stage
+                // more note about ...
+                // name: spread operators
+                // The spread operator allows an expression to be expanded in places where multiple arguments (for function calls) or multiple elements (for array literals) are expected.
                 ...state,
                 todo(undefined, action) // TODO: why undefined here
             ];

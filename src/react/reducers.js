@@ -4,8 +4,18 @@ const { SHOW_ALL } = VisibilityFilters
 
 // Note that each of these reducers is managing its own part of the global state. The state parameter is different for every reducer, and corresponds to the part of the state it manages.
 // 
+// current filter type
 
+function visibilityFilters(state = SHOW_ALL, action) {
+    switch (action.type) {
+        case SET_VISIBILITY_FILTER:
+            return action.filter;
+        default:
+            return state;
+    }
+}
 
+// single todo
 function todo(state, action) {
     switch (action.type) {
         case ADD_TODO

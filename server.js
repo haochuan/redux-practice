@@ -40,7 +40,7 @@ app.use(require('cors')());
 
 app.use(router);
 
-app.use(express.static('dist', __dirname + '/dist'));
+app.use(express.static('dist'));
 
 var server = app.listen(port, function() {
 

@@ -18,7 +18,7 @@ function visibilityFilters(state = SHOW_ALL, action) {
 // single todo
 function todo(state, action) {
     switch (action.type) {
-        case ADD_TODO
+        case ADD_TODO:
             // return a new single todo state1
             return {
                 id: action.id,
@@ -55,10 +55,10 @@ function todos(state = [], action) {
                 todo(undefined, action) // TODO: why undefined here
             ];
         case COMPLETE_TODO:
-            return state.map(t => 
-                // now t is a single todo state
-                todo(t, action);
-            );
+            // now t is a single todo state
+            // return state.map(t =>
+            //     todo(t, action);
+            // );
         default: 
             return state;
     }
@@ -75,3 +75,5 @@ const todoApp = combineReducers({
     VisibilityFilters,
     todos 
 });
+
+export default todoApp;

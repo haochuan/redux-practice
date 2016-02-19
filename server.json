@@ -1,6 +1,6 @@
 {
     "apps": [{
-        "name": "Redux Practice",
+        "name": "Example App",
         "script": "server.js",
         "log_date_format": "YYYY-MM-DD HH:mm Z",
         "env": {

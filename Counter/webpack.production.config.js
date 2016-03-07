@@ -5,8 +5,6 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var StatsPlugin = require('stats-webpack-plugin');
-var autoprefixer      = require('autoprefixer');
-var csswring          = require('csswring');
 
 module.exports = {
     entry: [
@@ -35,15 +33,10 @@ module.exports = {
             modules: false
         }),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production')
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         })
     ],
     module: {
-        // preLoaders: [{
-        //     test: /\.js$/,
-        //     exclude: /node_modules/,
-        //     loader: 'eslint'
-        // }],
         loaders: [
             // js/jsx 
             {
@@ -60,21 +53,23 @@ module.exports = {
             // css
             {
                 test: /\.css$/,
-                loader: "style-loader!css-loader!postcss-loader"
+                loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
             },
 
             // less
-            { 
-                test: /\.less$/, 
-                loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!autoprefixer?browsers=last 2 version!less?outputStyle=expanded&sourceMap' 
+            {
+                test: /\.less$/,
+                loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!autoprefixer?browsers=last 2 version!less?outputStyle=expanded&sourceMap'
             },
             // sass
-            { 
+            {
                 test: /\.scss$/,
-                loader: 'style!css!postcss!sass'
+                loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap'
             }
 
         ]
     },
-    postcss: [autoprefixer, csswring]
+    postcss: [
+        require('autoprefixer')
+    ]
 };

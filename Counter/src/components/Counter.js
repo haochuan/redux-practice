@@ -1,4 +1,3 @@
-import './index.scss';
 import React, { Component, PropTypes } from 'react'
 
 class Counter extends Component {
@@ -21,7 +20,7 @@ class Counter extends Component {
   render() {
     const { value, onIncrement, onDecrement } = this.props
     return (
-      <p className='haochuan'>
+      <p>
         Clicked: {value} times
         {' '}
         <button onClick={onIncrement}>

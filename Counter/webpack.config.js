@@ -3,8 +3,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var autoprefixer      = require('autoprefixer');
-var csswring          = require('csswring');
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
@@ -48,7 +46,7 @@ module.exports = {
             // css
             {
                 test: /\.css$/,
-                loader: "style-loader!css-loader!postcss-loader"
+                loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
             },
 
             // less
@@ -58,8 +56,8 @@ module.exports = {
             },
             // sass
             { 
-                test: /\.scss$/,
-                loader: 'style!css!postcss!sass'
+                test: /\.scss$/, 
+                loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap' 
             }
             // // font and svg
             // { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
@@ -68,6 +66,5 @@ module.exports = {
             // { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
             // { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }
         ] 
-    },
-    postcss: [autoprefixer, csswring]
+    }
 }

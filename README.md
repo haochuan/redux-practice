@@ -6,3 +6,4 @@ Simple project using React and Redux
 
 - Counter
 - Todo List
+- Metronome

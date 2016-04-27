@@ -1,0 +1,51 @@
+.counter-number-valign-wrapper {
+    height: 60%;
+    margin-top: 20%;
+    width: 100%;
+}
+
+.counter-number-valign {
+    width: 100%;
+}
+
+
+.counter-number {
+    font-size: 100px;
+}
+
+.counter-control {
+    height: 80px;
+    margin: 0px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+}
+
+
+.counter-container {
+    height: 100%;
+    width: 100%;
+}
+
+
+.counter-control-left {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.counter-control-right {
+    float: right;
+    width: 50%;
+    height: 100%;
+}
+
+.counter-control-btn {
+    width: 100%;
+    height: 100%;
+    padding-top: 22px;
+}
+
+.counter-btn-icon {
+    font-size: 40px !important;
+}

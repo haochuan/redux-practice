@@ -1,21 +1,24 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var morgan = require('morgan');
+import express from 'express';
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
 // webpack
-var path = require('path');
-var webpack = require('webpack');
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
-var config = require('./webpack.config');
+import path from 'path';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import config from './webpack.config';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
-var port = isProduction ? process.env.PORT : 3000;
-var isProduction = process.env.NODE_ENV === 'production';
+const app = express();
+
+const port = isProduction ? process.env.PORT : 3000;
+const isProduction = process.env.NODE_ENV === 'production';
 
 
 if (!isProduction) {
-    var compiler = webpack(config);
-    var webpackMiddleware = webpackDevMiddleware(compiler, {
+    let compiler = webpack(config);
+    let webpackMiddleware = webpackDevMiddleware(compiler, {
         publicPath: config.output.publicPath,
         contentBase: 'src',
         stats: {
@@ -35,9 +38,9 @@ if (!isProduction) {
         res.end();
     });
 } else {
-    app.use(express.static(__dirname + '/dist'));
+    app.use(express.static(__dirname + '/build'));
     app.get('*', function response(req, res) {
-        res.sendFile(path.join(__dirname, 'dist/index.html'));
+        res.sendFile(path.join(__dirname, 'build/index.html'));
     });
 }
 
@@ -78,12 +81,14 @@ if (!isProduction) {
 
 // app.use(express.static('dist'));
 
-var server = app.listen(port, function() {
+const server = app.listen(port, function() {
 
-    var host = server.address().address;
-    var port = server.address().port;
+    let host = server.address().address;
+    let port = server.address().port;
 
-    console.log('Server listening at http://%s:%s', host, port);
+    var envString = isProduction ? "Production" : "Development";
+
+    console.log(envString + ' server listening at http://%s:%s', host, port);
 
 });
 

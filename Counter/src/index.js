@@ -1,22 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
-import Counter from './components/Counter';
-import counter from './reducers';
+import { Router, Route, Link, hashHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import { configureStore } from './store/configureStore';
+import routes from './routes';
 
-const store = (window.devToolsExtension ? window.devToolsExtension()(createStore) : createStore)(counter);
+// const store = (window.devToolsExtension ? window.devToolsExtension()(createStore) : createStore)(counter);
+const store = configureStore(window.__INITIAL_STATE__);
 const rootEl = document.getElementById('root');
 
 function render() {
   ReactDOM.render(
-    <Counter 
-        value={store.getState()} 
-        onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
-        onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
-    />,
+    <Provider store={store}>
+        <Router routes={routes} />
+    </Provider>,
     rootEl  
   );
 }
 
 render();
-store.subscribe(render);

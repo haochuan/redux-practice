@@ -1,0 +1,51 @@
+.timer-number-valign-wrapper {
+    height: 60%;
+    margin-top: 20%;
+    width: 100%;
+}
+
+.timer-number-valign {
+    width: 100%;
+}
+
+
+.timer-number {
+    font-size: 100px;
+}
+
+.timer-control {
+    height: 80px;
+    margin: 0px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+}
+
+
+.timer-container {
+    height: 100%;
+    width: 100%;
+}
+
+
+.timer-control-left {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.timer-control-right {
+    float: right;
+    width: 50%;
+    height: 100%;
+}
+
+.timer-control-btn {
+    width: 100%;
+    height: 100%;
+    padding-top: 22px;
+}
+
+.timer-btn-icon {
+    font-size: 40px !important;
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Router, Route, Link, hashHistory } from 'react-router';
-import Counter from './containers/Counter';
+import Timer from './containers/Timer';
 
 const routes =  (
     <Router history={hashHistory}>
-        <Route name="home" path="/" component={Counter}></Route>
+        <Route name="home" path="/" component={Timer}></Route>
     </Router>  
 );
 

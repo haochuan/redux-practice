@@ -29,7 +29,6 @@
     "react-router": "^2.2.4",
     "redux": "^3.0.6",
     "redux-logger": "^2.6.1",
-    "redux-saga": "^0.10.1",
     "redux-thunk": "^1.0.3"
   },
   "devDependencies": {

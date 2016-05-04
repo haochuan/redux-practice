@@ -1,19 +1,32 @@
 import { combineReducers } from 'redux';
 import * as ActionTypes from '../constants';
 
-function counter(state = {status: 'stop', number: 0}, action) {
+function number(state = 0, action) {
+
     switch (action.type) {
-        case ActionTypes.INCREMENT:
+        case ActionTypes.TICK:
             return state + 1;
-        case ActionTypes.DECREMENT:
-            return state - 1;
+        case ActionTypes.RESET:
+            return 0;
+        default: 
+            return state;
+    }
+}
+
+function status(state = 'stop', action) {
+    switch (action.type) {
+        case ActionTypes.START:
+            return 'running';
+        case ActionTypes.STOP:
+            return 'stop';
         default: 
             return state;
     }
 }
 
 const reducer = combineReducers({
-    counter
+    number,
+    status
 });
 
 export default reducer;

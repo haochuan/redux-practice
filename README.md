@@ -7,5 +7,11 @@ Simple project using React and Redux
 - [ ] Counter
 - [ ] Todo List
 - [ ] Metronome
-- [ ] Timer
+- [x] Timer
 - [x] Redux For Dummies
+
+# Note to get completed file from master to gh-pages
+
+```
+git checkout <commit_hash> <relative_path_to_file_or_dir></relative></commit>
+```

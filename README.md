@@ -4,11 +4,12 @@ Simple project using React and Redux
 
 # Project list
 
-- [ ] Counter
-- [ ] Todo List
-- [ ] Metronome
+- [x] Counter
 - [x] Timer
 - [x] Redux For Dummies
+- [ ] Metronome
+- [ ] Todo List
+- [ ] H1B Lottery Simulation
 
 # Note to get completed file from master to gh-pages
 

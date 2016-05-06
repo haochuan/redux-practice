@@ -1,5 +1,9 @@
 import moment from 'moment';
 
+const ROUND_ONE = 20000;
+const ROUND_TWO = 65000;
+
+
 const TOTAL_MAX = 300000;
 const TOTAL_MIN = 200000;
 
@@ -57,5 +61,24 @@ function seperateTotalNumber(number) {
 }
 
 function lottery(info, number) {
+    let result = {};
+    let roundOne = null;
+    let roundTwo = null;
 
+    if (info.type === 'adv') {
+        roundOne = Math.random() > (number.adv_pp + number.advNonpp) / ROUND_ONE;
+        if (!roundOne) {
+            roundTwo = Math.random() > (number.adv_pp + number.adv_nonpp + number.reg_pp + number.reg_nonpp - ROUND_ONE) / ROUND_TWO;
+        }
+    } else {
+        roundOne = Math.random() > (number.adv_pp + number.adv_nonpp + number.reg_pp + number.reg_nonpp - ROUND_ONE) / ROUND_TWO;
+    }
+
+    let pass = (roundOne || roundTwo) ? true : false;
+
+    return info.assign({
+        roundOne: roundOne,
+        roundTwo: roundTwo,
+        pass: pass
+    });
 } 

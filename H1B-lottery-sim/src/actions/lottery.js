@@ -16,10 +16,12 @@ const ADV_RATE_MAX = 0.3;
 const PP_RATE_MIN = 0.1;
 const PP_RATE_MAX = 0.4;
 
+const DAILY_DIFF = 500;
 
-function run() {
 
-}
+// function run(time) {
+//     const ANNOUCE_DATE = time.
+// }
 
 /**
  * Generate the total application number for the current year
@@ -60,25 +62,104 @@ function seperateTotalNumber(number) {
     }
 }
 
+/**
+ * Test if win the lottery
+ * @param  {Obj} info   Info about the application
+ * @param  {Obj} number Seperated Data
+ * @return {Obj}        New info about the application
+ */
 function lottery(info, number) {
     let result = {};
     let roundOne = null;
     let roundTwo = null;
 
     if (info.type === 'adv') {
-        roundOne = Math.random() > (number.adv_pp + number.advNonpp) / ROUND_ONE;
+        roundOne = Math.random() < ROUND_ONE / (number.adv_pp + number.adv_nonpp);
         if (!roundOne) {
-            roundTwo = Math.random() > (number.adv_pp + number.adv_nonpp + number.reg_pp + number.reg_nonpp - ROUND_ONE) / ROUND_TWO;
+            roundTwo = Math.random() < ROUND_TWO / (number.adv_pp + number.adv_nonpp + number.reg_pp + number.reg_nonpp - ROUND_ONE);
         }
     } else {
-        roundOne = Math.random() > (number.adv_pp + number.adv_nonpp + number.reg_pp + number.reg_nonpp - ROUND_ONE) / ROUND_TWO;
+        roundOne = Math.random() < ROUND_TWO / (number.adv_pp + number.adv_nonpp + number.reg_pp + number.reg_nonpp - ROUND_ONE);
     }
 
     let pass = (roundOne || roundTwo) ? true : false;
 
-    return info.assign({
+    return Object.assign(info, {
         roundOne: roundOne,
         roundTwo: roundTwo,
         pass: pass
     });
 } 
+
+function timeline(time, totalNumber) {
+    let line = [];
+    // announce stopping receiving
+    let announceDate = time.add(Math.floor(Math.random() * (14 - 7) + 7), 'd');
+    line.push({
+        event: 'annouce',
+        time: announceDate.format('YYYY-MM-DD'),
+        description: "Annouced received " + totalNumber + " applications"
+    });
+
+    // first adv pp receipt
+    let firstAdvPpDate = announceDate.add(Math.floor(Math.random() * (5 - 0) + 0), 'd');
+    line.push({
+        event: 'firstAdvPp',
+        time: firstAdvPpDate.format('YYYY-MM-DD'),
+        description: "First Adv PP received on " + firstAdvPpDate.format('YYYY-MM-DD')
+    });
+
+    // first reg pp receipt
+    let firstRegPpDate = firstAdvPpDate.add(Math.floor(Math.random() * (7 - 3) + 3), 'd');
+    line.push({
+        event: 'firstRegPp',
+        time: firstRegPpDate.format('YYYY-MM-DD'),
+        description: "First Reg PP received on " + firstRegPpDate.format('YYYY-MM-DD')
+    });
+
+    // first adv nopp receipt
+    let firstAdvNonppDate = firstRegPpDate.add(Math.floor(Math.random() * (12 - 5) + 5), 'd');
+    line.push({
+        event: 'firstAdvNonpp',
+        time: firstAdvNonppDate.format('YYYY-MM-DD'),
+        description: "First Adv nonPP received on " + firstAdvNonppDate.format('YYYY-MM-DD')
+    });
+
+    // first adv nopp receipt
+    let firstRegNonppDate = firstAdvNonppDate.add(Math.floor(Math.random() * (5 - 0) + 0), 'd');
+    line.push({
+        event: 'firstRegPp',
+        time: firstRegNonppDate.format('YYYY-MM-DD'),
+        description: "First Reg nonPP received on " + firstRegNonppDate.format('YYYY-MM-DD')
+    });
+    return line;
+
+    // TODO: add chart realted to four lines here
+}
+
+// function generateChartData(start, end, number) {
+//     const dailyBase = Math.floor(number / start.diff(end, 'days')) - DAILY_DIFF;
+//     let currentDate = start;
+//     let line = [];
+//     let numberLeft = number;
+
+//     while(numberLeft > 0) {
+//         let dailyReal = dailyBase + Math.floor(Math.random() * (DAILY_DIFF) + DAILY_DIFF)
+//         if (numberLeft <= dailyReal) {
+//             line.push({
+//                 date: 
+//             })
+//         }
+//     }
+
+// }
+// 
+// 
+let data = seperateTotalNumber(250000);
+let info = {type: 'adv', pp: true};
+let result = lottery(info, data);
+let line = timeline(START_DATE, data);
+
+console.log(data);
+console.log(result);
+console.log(line);

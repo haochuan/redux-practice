@@ -13,33 +13,46 @@ class Lottery extends Component {
         $('.pp-selection').material_select();
     }
 
+    componentDidUpdate() {
+        $('.type-selection').material_select();
+        $('.pp-selection').material_select();
+    }
+
 
     render() {
-        const { value } = this.props
+        const { time, status, application } = this.props
         return (
             <div className="container">
-                <div className="card-panel">
+                <div className="card-panel c-card-panel">
+                    <div>
+                        <h5 className="center-align">{time.format("YYYY")} H1B Application Simulator</h5>
+                    </div>
+                    <br />
+                    <br />
                     <div className="row">
                         <div className="input-field col s12">
-                            <select className='type-selection'>
-                                <option value="" disabled>Choose your option</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                            <select className='type-selection' defaultValue="">
+                                <option value="" disabled>Choose Your Degree</option>
+                                <option value="adv">Advanced</option>
+                                <option value="reg">Regular</option>
                             </select>
-                            <label>Materialize Select</label>
+                            <label>Choose Your Degree</label>
                         </div>
                     </div>
                     <br />
                     <div className="row">
                         <div className="input-field col s12">
-                            <select className='pp-selection'>
-                                <option value="" disabled>Choose your option</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                            <select className='pp-selection' defaultValue="">
+                                <option value="" disabled>Choose The Type of Application</option>
+                                <option value="pp">Premium Process</option>
+                                <option value="nonpp">Regular Process</option>
                             </select>
-                            <label>Materialize Select</label>
+                            <label>Choose The Type of Application</label>
+                        </div>
+                    </div>
+                    <div className="row center">
+                        <div className="col s12">
+                            <a className="waves-effect waves-light btn">Start Simulation</a>
                         </div>
                     </div>
                 </div>

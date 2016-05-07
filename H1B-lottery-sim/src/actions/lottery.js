@@ -169,6 +169,23 @@ function generateChartData(start, days, number) {
     }
     return line;
 }
+
+/**
+ * Generate the pass date if there is any
+ * @param  {Obj} info      application info
+ * @param  {Array} chartData Array of generated chart data
+ * @return {Obj}           application info with pass date if there is any
+ */
+function generateGotDate(info, chartData) {
+    let userInfo = info;
+    if (userInfo.pass) {
+        let length = chartData.length;
+        let randomIndex = Math.floor(Math.random() * (length - 1) + 1);
+        userInfo.passDate = chartData[randomIndex - 1];
+    } else {
+        return userInfo;
+    }
+}
 // 
 // 
 let data = seperateTotalNumber(250000);

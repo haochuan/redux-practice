@@ -137,29 +137,47 @@ function timeline(time, totalNumber) {
     // TODO: add chart realted to four lines here
 }
 
-// function generateChartData(start, end, number) {
-//     const dailyBase = Math.floor(number / start.diff(end, 'days')) - DAILY_DIFF;
-//     let currentDate = start;
-//     let line = [];
-//     let numberLeft = number;
+/**
+ * Generate the chart data for timeline
+ * @param  {Moment} start  Start date moment objecdt
+ * @param  {Number} days   How many days will last
+ * @param  {Number} number Total Number
+ * @return {Array}        Chart data
+ */
+function generateChartData(start, days, number) {
+    const dailyBase = Math.floor(number / days);
+    const diff = dailyBase / 4;
+    let currentDate = start;
+    let line = [];
+    let numberLeft = number;
 
-//     while(numberLeft > 0) {
-//         let dailyReal = dailyBase + Math.floor(Math.random() * (DAILY_DIFF) + DAILY_DIFF)
-//         if (numberLeft <= dailyReal) {
-//             line.push({
-//                 date: 
-//             })
-//         }
-//     }
-
-// }
+    while(numberLeft > 0) {
+        let dailyReal = dailyBase + Math.floor(Math.random() * (2 * diff) - diff);
+        if (numberLeft > dailyReal) {
+            line.unshift({
+                date: currentDate.format("YYYY-MM-DD"),
+                count: dailyReal
+            });
+        } else {
+            line.unshift({
+                date: currentDate.format("YYYY-MM-DD"),
+                count: numberLeft
+            });
+        }
+        currentDate = currentDate.subtract(1, 'd');
+        numberLeft = numberLeft - dailyReal;
+    }
+    return line;
+}
 // 
 // 
 let data = seperateTotalNumber(250000);
 let info = {type: 'adv', pp: true};
 let result = lottery(info, data);
 let line = timeline(START_DATE, data);
+let chart = generateChartData(START_DATE, 20, 100000);
 
 console.log(data);
-console.log(result);
-console.log(line);
+// console.log(result);
+// console.log(line);
+console.log(chart);

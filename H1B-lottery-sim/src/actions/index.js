@@ -1,20 +1,30 @@
 import * as ActionTypes from '../constants';
-import lottery from './lottery';
+import generateLottery from './lottery';
 
-export function increment() {
+export function lottery() {
     // with redux thunk, in actions you have the access to store.dispatch and store.getState
     return ((dispatch, getState) => {
+        const currentYear = getState().time;
+        const result = generateLottery(); 
         dispatch({
-            type: ActionTypes.INCREMENT
+            type: ActionTypes.LOTTERY,
+            result: result
+        });
+        dispatch({
+            type: ActionTypes.FINISH
+        });
+
+        dispatch({
+            type: ActionTypes.NEXT_YEAR
         });
     });
 }
 
-export function decrement() {
+export function repeat() {
     // with redux thunk, in actions you have the access to store.dispatch and store.getState
     return ((dispatch, getState) => {
         dispatch({
-            type: ActionTypes.DECREMENT
+            type: ActionTypes.START
         });
     });
 }

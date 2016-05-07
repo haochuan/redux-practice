@@ -19,9 +19,52 @@ const PP_RATE_MAX = 0.4;
 const DAILY_DIFF = 500;
 
 
-// function run(time) {
-//     const ANNOUCE_DATE = time.
-// }
+export default function main(info, currentYear) {
+    const totalNumber = generateTotalNumber(currentYear);
+    const seperatedNumber = seperateTotalNumber(totalNumber);
+    const eventLine = timeline(currentYear, seperatedNumber);
+    const adv_pp_data = generateData(moment(eventLine[1].time), 
+                                     Math.floor(Math.random() * (21 - 14) + 14),
+                                     seperatedNumber['adv_pp']);
+    const reg_pp_data = generateData(moment(eventLine[2].time), 
+                                     Math.floor(Math.random() * (21 - 14) + 14),
+                                     seperatedNumber['adv_nonpp']);
+    const adv_nonpp_data = generateData(moment(eventLine[3].time), 
+                                     Math.floor(Math.random() * (35 - 14) + 14),
+                                     seperatedNumber['reg_pp']);
+    const reg_nonpp_data = generateData(moment(eventLine[4].time), 
+                                     Math.floor(Math.random() * (35 - 14) + 14),
+                                     seperatedNumber['reg_nonpp']);
+
+    let application = lottery(info);
+    // decide what data to use to generate the result date
+    let whichData;
+    if (application.type === 'adv') {
+        if (application.pp) {
+            whichData = adv_pp_data;
+        } else {
+            whichData = adv_nonpp_data;
+        }
+    } else {
+        if (application.pp) {
+            whichData = reg_pp_data;
+        } else {
+            whichData = reg_nonpp_data;
+        }
+    }
+    let application_result = generateGotDate(application, whichData);
+    return {
+        totalNumber,
+        seperatedNumber,
+        eventLine,
+        adv_pp_data,
+        reg_pp_data,
+        adv_nonpp_data,
+        reg_nonpp_data,
+        application,
+        application_result
+    };
+}
 
 /**
  * Generate the total application number for the current year
@@ -144,7 +187,7 @@ function timeline(time, totalNumber) {
  * @param  {Number} number Total Number
  * @return {Array}        Chart data
  */
-function generateChartData(start, days, number) {
+function generateData(start, days, number) {
     const dailyBase = Math.floor(number / days);
     const diff = dailyBase / 4;
     let currentDate = start;
@@ -181,20 +224,9 @@ function generateGotDate(info, chartData) {
     if (userInfo.pass) {
         let length = chartData.length;
         let randomIndex = Math.floor(Math.random() * (length - 1) + 1);
-        userInfo.passDate = chartData[randomIndex - 1];
+        userInfo.passDate = chartData[randomIndex - 1].date;
+        return userInfo;
     } else {
         return userInfo;
     }
 }
-// 
-// 
-let data = seperateTotalNumber(250000);
-let info = {type: 'adv', pp: true};
-let result = lottery(info, data);
-let line = timeline(START_DATE, data);
-let chart = generateChartData(START_DATE, 20, 100000);
-
-console.log(data);
-// console.log(result);
-// console.log(line);
-console.log(chart);

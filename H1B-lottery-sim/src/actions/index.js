@@ -1,11 +1,11 @@
+import moment from 'moment';
 import * as ActionTypes from '../constants';
 import generateLottery from './lottery';
 
-export function lottery() {
+export function lottery(application, time) {
     // with redux thunk, in actions you have the access to store.dispatch and store.getState
     return ((dispatch, getState) => {
-        const currentYear = getState().time;
-        const result = generateLottery(); 
+        const result = generateLottery(application, moment(time)); 
         dispatch({
             type: ActionTypes.LOTTERY,
             result: result

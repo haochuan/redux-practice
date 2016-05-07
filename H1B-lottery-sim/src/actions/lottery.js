@@ -36,7 +36,7 @@ export default function main(info, currentYear) {
                                      Math.floor(Math.random() * (35 - 14) + 14),
                                      seperatedNumber['reg_nonpp']);
 
-    let application = lottery(info);
+    let application = lottery(info, seperatedNumber);
     // decide what data to use to generate the result date
     let whichData;
     if (application.type === 'adv') {
@@ -74,7 +74,7 @@ export default function main(info, currentYear) {
 function generateTotalNumber(time) {
     const random = Math.random() * (TOTAL_MAX - TOTAL_MIN) + TOTAL_MIN;
     const yearDiff = time.diff(START_DATE, 'years');
-    return random + ANNUAL_INCRESEMENT * yearDiff;
+    return Math.floor(random + ANNUAL_INCRESEMENT * yearDiff);
 }
 
 /**

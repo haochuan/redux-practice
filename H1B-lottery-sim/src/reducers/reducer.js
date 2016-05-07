@@ -2,10 +2,10 @@ import { combineReducers } from 'redux';
 import moment from 'moment';
 import * as ActionTypes from '../constants';
 
-function time(state = moment("2017-04-01"), action) {
+function time(state = "2017-04-01", action) {
     switch (action.type) {
         case ActionTypes.NEXT_YEAR:
-            return state.add(1, 'y');
+            return moment(state).add(1, 'y').format("YYYY-MM-DD");
         default: 
             return state;
     }

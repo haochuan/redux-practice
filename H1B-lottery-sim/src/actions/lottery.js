@@ -22,7 +22,7 @@ const DAILY_DIFF = 500;
 export default function main(info, currentYear) {
     const totalNumber = generateTotalNumber(currentYear);
     const seperatedNumber = seperateTotalNumber(totalNumber);
-    const eventLine = timeline(currentYear, seperatedNumber);
+    const eventLine = timeline(currentYear, totalNumber);
     const adv_pp_data = generateData(moment(eventLine[1].time), 
                                      Math.floor(Math.random() * (21 - 14) + 14),
                                      seperatedNumber['adv_pp']);
@@ -138,10 +138,11 @@ function timeline(time, totalNumber) {
     let line = [];
     // announce stopping receiving
     let announceDate = time.add(Math.floor(Math.random() * (14 - 7) + 7), 'd');
+    let totalCount
     line.push({
         event: 'annouce',
         time: announceDate.format('YYYY-MM-DD'),
-        description: "Annouced received " + totalNumber + " applications"
+        description: "On " + announceDate.format('YYYY-MM-DD') + ", USCIS announced that it has completed data entry of all fiscal year " +  announceDate.add(1, 'y').format('YYYY') + " H-1B cap-subject petitions selected in our computer-generated random process. And the total number is " + totalNumber + "."
     });
 
     // first adv pp receipt
@@ -149,7 +150,7 @@ function timeline(time, totalNumber) {
     line.push({
         event: 'firstAdvPp',
         time: firstAdvPpDate.format('YYYY-MM-DD'),
-        description: "First Adv PP received on " + firstAdvPpDate.format('YYYY-MM-DD')
+        description: "The first Premium Process for Advanced Degree was received on " + firstAdvPpDate.format('YYYY-MM-DD')
     });
 
     // first reg pp receipt
@@ -157,7 +158,7 @@ function timeline(time, totalNumber) {
     line.push({
         event: 'firstRegPp',
         time: firstRegPpDate.format('YYYY-MM-DD'),
-        description: "First Reg PP received on " + firstRegPpDate.format('YYYY-MM-DD')
+        description: "The first Premium Process for Regular Degree was received on " + firstRegPpDate.format('YYYY-MM-DD')
     });
 
     // first adv nopp receipt
@@ -165,7 +166,7 @@ function timeline(time, totalNumber) {
     line.push({
         event: 'firstAdvNonpp',
         time: firstAdvNonppDate.format('YYYY-MM-DD'),
-        description: "First Adv nonPP received on " + firstAdvNonppDate.format('YYYY-MM-DD')
+        description: "The first Non Premium Process for Advanced Degree was received on " + firstAdvNonppDate.format('YYYY-MM-DD')
     });
 
     // first adv nopp receipt
@@ -173,7 +174,7 @@ function timeline(time, totalNumber) {
     line.push({
         event: 'firstRegPp',
         time: firstRegNonppDate.format('YYYY-MM-DD'),
-        description: "First Reg nonPP received on " + firstRegNonppDate.format('YYYY-MM-DD')
+        description: "The first Non Premium Process for Regular Degree was received on " + firstRegNonppDate.format('YYYY-MM-DD')
     });
     return line;
 

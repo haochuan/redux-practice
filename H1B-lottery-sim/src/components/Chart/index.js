@@ -1,4 +1,5 @@
 import './style.css';
+import ChartJS from 'chart.js';
 import React, { Component, PropTypes } from 'react'
 
 
@@ -21,15 +22,19 @@ class Chart extends Component {
     render() {
         const { events } = this.props
         return (
-            <ul className="collection">
-                {
-                    events.map(function(event) {
-                        return (
-                            <li className="collection-item">{event.description}</li>
-                        );
-                    })
-                }
-            </ul>
+            <div>
+                <div className="row">
+                    <canvas width="400" height="400"></canvas>
+                </div>
+
+                <div className="row">
+                    <canvas width="400" height="400"></canvas>
+                </div>
+
+                <div className="row">
+                    <canvas width="400" height="400"></canvas>
+                </div>
+            </div>
         );
     }
 }

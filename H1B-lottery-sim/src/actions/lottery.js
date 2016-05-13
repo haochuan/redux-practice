@@ -208,7 +208,7 @@ function generateData(start, days, number) {
                 count: numberLeft
             });
         }
-        currentDate = currentDate.subtract(1, 'd');
+        currentDate = currentDate.add(1, 'd');
         numberLeft = numberLeft - dailyReal;
     }
     return line;
@@ -226,6 +226,9 @@ function generateGotDate(info, chartData) {
         let length = chartData.length;
         let randomIndex = Math.floor(Math.random() * (length - 1) + 1);
         userInfo.passDate = chartData[randomIndex - 1].date;
+        console.log(length);
+        console.log(randomIndex);
+        console.log(chartData);
         return userInfo;
     } else {
         return userInfo;

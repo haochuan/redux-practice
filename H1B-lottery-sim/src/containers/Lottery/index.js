@@ -70,7 +70,7 @@ class Lottery extends Component {
         );
 
         const resultWindow = (
-            <Event events={application.eventLine}/>
+            <Event events={application.eventLine} application={application.application_result}/>
         );
 
         let mainWindow;

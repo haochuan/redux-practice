@@ -1,0 +1,7 @@
+.event-item {
+    visibility: hidden;
+}
+
+.event-item.animated {
+    visibility: visible;
+}

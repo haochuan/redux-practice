@@ -14,16 +14,16 @@ export function lottery(application) {
         dispatch({
             type: ActionTypes.FINISH
         });
-
-        dispatch({
-            type: ActionTypes.NEXT_YEAR
-        });
     });
 }
 
 export function repeat() {
     // with redux thunk, in actions you have the access to store.dispatch and store.getState
     return ((dispatch, getState) => {
+        dispatch({
+            type: ActionTypes.NEXT_YEAR
+        });
+
         dispatch({
             type: ActionTypes.START
         });

@@ -22,7 +22,8 @@ class Event extends Component {
 
 
     render() {
-        const { events, application } = this.props
+        const { events, application, startover } = this.props
+        console.log(startover);
         let result;
         let resultNode;
 
@@ -36,7 +37,11 @@ class Event extends Component {
         } else {
             result = "Unfortunatelly, you did not received any new about your " + pp_text + " Premium Process for " + type_text + " Degree";
             resultNode = (
-                <li className="collection-item grey lighten-1 event-item">{result}</li>
+                <li className="collection-item grey lighten-1 event-item">
+                    {result}
+                    <hr />
+                    <a className="center-align waves-effect waves-light btn" onClick={startover}>Try next year</a>
+                </li>
             );
 
         }

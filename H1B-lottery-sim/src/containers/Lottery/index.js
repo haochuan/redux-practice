@@ -10,6 +10,7 @@ class Lottery extends Component {
     constructor(props) {
         super(props);
         this._validation = this._validation.bind(this);
+        this._startover = this._startover.bind(this);
     }
 
     _validation() {
@@ -24,6 +25,10 @@ class Lottery extends Component {
         } else {
             Materialize.toast('Please select both the Degree and the Type to continue.', 4000);
         }
+    }
+
+    _startover() {
+        this.props.dispatch(actions.repeat()); 
     }
 
     componentDidMount() {
@@ -72,7 +77,11 @@ class Lottery extends Component {
 
         const resultWindow = (
             <div>
-                <Event events={application.eventLine} application={application.application_result}/>
+                <Event 
+                    events={application.eventLine} 
+                    application={application.application_result}
+                    startover={this._startover}
+                />
                 <Chart 
                     adv_pp_data={application.adv_pp_data} 
                     reg_pp_data={application.reg_pp_data}

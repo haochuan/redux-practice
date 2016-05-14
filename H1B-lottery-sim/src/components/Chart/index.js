@@ -161,16 +161,16 @@ class Chart extends Component {
     render() {
         return (
             <div>
-                <div className="row">
+                <div className="row canvas-container">
                     <canvas ref="adv_pp_canvas"></canvas>
                 </div>
-                <div className="row">
+                <div className="row canvas-container">
                     <canvas ref="reg_pp_canvas"></canvas>
                 </div>
-                <div className="row">
+                <div className="row canvas-container">
                     <canvas ref="adv_nonpp_canvas"></canvas>
                 </div>
-                <div className="row">
+                <div className="row canvas-container">
                     <canvas ref="reg_nonpp_canvas"></canvas>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 import Event from '../../components/Event';
+import Chart from '../../components/Chart';
 
 class Lottery extends Component {
     constructor(props) {
@@ -70,7 +71,15 @@ class Lottery extends Component {
         );
 
         const resultWindow = (
-            <Event events={application.eventLine} application={application.application_result}/>
+            <div>
+                <Event events={application.eventLine} application={application.application_result}/>
+                <Chart 
+                    adv_pp_data={application.adv_pp_data} 
+                    reg_pp_data={application.reg_pp_data}
+                    adv_nonpp_data={application.adv_nonpp_data} 
+                    reg_nonpp_data={application.reg_nonpp_data} 
+                />
+            </div>
         );
 
         let mainWindow;

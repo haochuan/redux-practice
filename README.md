@@ -9,7 +9,7 @@ Simple project using React and Redux
 - [x] Redux For Dummies
 - [ ] Metronome
 - [ ] Todo List
-- [ ] H1B Lottery Simulation
+- [x] H1B Lottery Simulation
 
 # Note to get completed file from master to gh-pages
 

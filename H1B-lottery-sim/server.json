@@ -1,11 +1,12 @@
 {
     "apps": [{
-        "name": "Example App",
+        "name": "H1B Lottery Simulation",
         "script": "server.js",
         "log_date_format": "YYYY-MM-DD HH:mm Z",
+        "node_args" : "--harmony",
         "env": {
             "NODE_ENV": "production",
-            "PORT": 3000
+            "PORT": 7488
         }
     }]
 }

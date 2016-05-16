@@ -12,7 +12,7 @@ require('isomorphic-fetch');
 
 const app = express();
 
-const port = isProduction ? process.env.PORT : 3000;
+const port = isProduction ? process.env.PORT : 7488;
 const isProduction = process.env.NODE_ENV === 'production';
 
 

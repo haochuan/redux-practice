@@ -1,9 +1,8 @@
 {
     "apps": [{
         "name": "H1B Lottery Simulation",
-        "script": "server.js",
+        "script": "server_es5.js",
         "log_date_format": "YYYY-MM-DD HH:mm Z",
-        "node_args" : "--harmony",
         "env": {
             "NODE_ENV": "production",
             "PORT": 7488

@@ -101,7 +101,7 @@ class Lottery extends Component {
 
 
         return (
-            <div className="container">
+            <div className="">
                 <div className="card-panel c-card-panel">
                     <div>
                         <h5 className="center-align">{time.substring(0, 4)} H1B Application Simulator</h5>

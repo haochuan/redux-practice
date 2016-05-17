@@ -23,7 +23,7 @@ class Chart extends Component {
             labels: [],
             datasets: [
                 {
-                    label: "Advanced Premium Process Received Count Per Day",
+                    label: "Adv PP Received Count/Day",
                     fill: false,
                     lineTension: 0.1,
                     backgroundColor: "rgba(75,192,192,0.4)",
@@ -50,7 +50,7 @@ class Chart extends Component {
             labels: [],
             datasets: [
                 {
-                    label: "Reguar Premium Process Received Count Per Day",
+                    label: "Reg PP Received Count/Day",
                     fill: false,
                     lineTension: 0.1,
                     backgroundColor: "rgba(75,192,192,0.4)",
@@ -77,7 +77,7 @@ class Chart extends Component {
             labels: [],
             datasets: [
                 {
-                    label: "Advanced Non Premium Process Received Count Per Day",
+                    label: "Adv NonPP Received Count/Day",
                     fill: false,
                     lineTension: 0.1,
                     backgroundColor: "rgba(75,192,192,0.4)",
@@ -104,7 +104,7 @@ class Chart extends Component {
             labels: [],
             datasets: [
                 {
-                    label: "Regular Non Premium Process Received Count Per Day",
+                    label: "Regular NonPP Received Count/Day",
                     fill: false,
                     lineTension: 0.1,
                     backgroundColor: "rgba(75,192,192,0.4)",

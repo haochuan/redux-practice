@@ -1,0 +1,14 @@
+{
+  "name": "h1b-lottery-simulator",
+  "version": "1.0.0",
+  "description": "H1b Lottery Simulator",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "_haochuan <haochuan.liu@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}

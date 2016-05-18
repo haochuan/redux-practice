@@ -146,7 +146,7 @@ function timeline(time, totalNumber) {
     });
 
     // first adv pp receipt
-    let firstAdvPpDate = announceDate.add(Math.floor(Math.random() * (5 - 0) + 0), 'd');
+    let firstAdvPpDate = announceDate.subtract(1, 'y').add(Math.floor(Math.random() * (5 - 0) + 0), 'days');
     line.push({
         event: 'firstAdvPp',
         time: firstAdvPpDate.format('YYYY-MM-DD'),

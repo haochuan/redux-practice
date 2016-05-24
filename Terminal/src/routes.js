@@ -1,10 +1,10 @@
 import React from 'react';
 import { Router, Route, Link, browserHistory } from 'react-router';
-import Counter from './containers/Counter';
+import Terminal from './containers/Terminal';
 
 const routes =  (
     <Router history={browserHistory}>
-        <Route name="home" path="/" component={Counter}></Route>
+        <Route name="home" path="/" component={Terminal}></Route>
     </Router>  
 );
 

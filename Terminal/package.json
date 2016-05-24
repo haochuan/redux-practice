@@ -65,7 +65,7 @@
     "sinon-chai": "^2.8.0",
     "stats-webpack-plugin": "^0.2.1",
     "style-loader": "^0.12.4",
-    "webpack": "^1.9.11",
+    "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.2.0"
   }

@@ -25,3 +25,7 @@
 .terminal-line-output {
     color: white;
 }
+
+.terminal-line-current {
+    color: #16E616;
+}

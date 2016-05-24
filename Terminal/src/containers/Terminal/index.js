@@ -5,27 +5,44 @@ import * as actions from '../../actions';
 
 class Terminal extends Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this._addCommand = this._addCommand.bind(this);
+    }
+
+    _addCommand(e) {
+        if (e.keyCode === 13) {
+            this.props.dispatch(actions.addCommand(e.target.value));
+            e.target.value = "";
+        }
     }
 
 
     render() {
-        const { value } = this.props
+        const { commands } = this.props
         return (
             <div className='terminal-container'>
-                <input className='terminal-line terminal-line-input' type="text" value="this is an input"/>
-                <input className='terminal-line terminal-line-output' type="text" value="this is an output"/>
+            {
+                commands.map((command) => {
+                    return (
+                        <div>
+                            <input className='terminal-line terminal-line-input' type="text" value={command.input} readOnly />
+                            <input className='terminal-line terminal-line-output' type="text" value={command.output} readOnly />
+                        </div>
+                    );
+                })
+            }
+                <input className='terminal-line terminal-line-current' type="text" autoFocus onKeyDown={this._addCommand} />
             </div>
         )
     }
 }
 
 Terminal.propTypes = {
-    value: PropTypes.number.isRequired
+    commands: PropTypes.array.isRequired
 }
 
 const mapStateToProps = (state) => ({
-    value: state.counter
+    commands: state.commands
 });
 
 export default connect(mapStateToProps)(Terminal);

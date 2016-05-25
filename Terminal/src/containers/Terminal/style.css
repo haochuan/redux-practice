@@ -29,4 +29,5 @@
 
 .terminal-line-current {
     color: #16E616;
+    cursor: default;
 }

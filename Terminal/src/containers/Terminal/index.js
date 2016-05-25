@@ -8,6 +8,11 @@ class Terminal extends Component {
     constructor(props) {
         super(props);
         this._addCommand = this._addCommand.bind(this);
+        this._containerClick = this._containerClick.bind(this);
+    }
+
+    _containerClick(e) {
+        this.refs.currentInput.focus();
     }
 
     _addCommand(e) {
@@ -27,7 +32,7 @@ class Terminal extends Component {
     render() {
         const { commands } = this.props
         return (
-            <div className='terminal-container' ref="container">
+            <div className='terminal-container' ref="container" onClick={this._containerClick}>
             {
                 commands.map((command) => {
                     return (
@@ -38,7 +43,7 @@ class Terminal extends Component {
                     );
                 })
             }
-                <input className='terminal-line terminal-line-current' type="text" autoFocus onKeyDown={this._addCommand} />
+                <input className='terminal-line terminal-line-current' type="text" autoFocus onKeyDown={this._addCommand} ref="currentInput" />
             </div>
         )
     }

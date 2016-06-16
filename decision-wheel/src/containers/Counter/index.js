@@ -31,37 +31,21 @@ export class Counter extends Component {
   }
 
   render() {
-    const { value } = this.props
+    const { value } = 1
     return (
-      <p className="haochuan">
-        Clicked: <span>{value}</span> times
-        {' '}
-        <button onClick={this._onIncrement}>
-          +
-        </button>
-        {' '}
-        <button onClick={this._onDecrement}>
-          -
-        </button>
-        {' '}
-        <button onClick={this.incrementIfOdd}>
-          Increment if odd
-        </button>
-        {' '}
-        <button onClick={this.incrementAsync}>
-          Increment async
-        </button>
-      </p>
+      <div>
+        aeaweawetahaochuan
+      </div>
     )
   }
 }
 
-Counter.propTypes = {
-  value: PropTypes.number.isRequired
-}
+// Counter.propTypes = {
+//   value: PropTypes.number.isRequired
+// }
 
 const mapStateToProps = (state) => ({
-    value: state.counter
+    // value: state.counter
 });
 
 export default connect(mapStateToProps)(Counter);

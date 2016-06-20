@@ -1,12 +1,14 @@
 import React from 'react';
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
 import Root from './containers/Root';
 import Counter from './containers/Counter';
+import Timer from './containers/Timer';
 
 const routes =  (
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
         <Route path="/" component={Root}>
-            <Route path="test" component={Counter} />
+            <Route path="counter"  component={Counter} />
+            <Route path="timer" component={Timer} />
         </Route>
     </Router>  
 );

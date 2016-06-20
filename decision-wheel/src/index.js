@@ -13,7 +13,7 @@ const rootEl = document.getElementById('root');
 function render() {
   ReactDOM.render(
     <Provider store={store}>
-        <Router routes={routes} />
+        {routes}
     </Provider>,
     rootEl  
   );

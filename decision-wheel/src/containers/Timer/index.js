@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
-export class Counter extends Component {
+export class Timer extends Component {
   constructor(props) {
     super(props)
   }
@@ -12,18 +12,18 @@ export class Counter extends Component {
   render() {
     return (
       <div>
-        This is a Counter
+        This is a Timer
       </div>
     )
   }
 }
 
-// Counter.propTypes = {
+// Timer.propTypes = {
 //   value: PropTypes.number.isRequired
 // }
 
 const mapStateToProps = (state) => ({
-    // value: state.counter
+    // value: state.Timer
 });
 
-export default connect(mapStateToProps)(Counter);
+export default connect(mapStateToProps)(Timer);

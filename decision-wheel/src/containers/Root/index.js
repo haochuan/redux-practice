@@ -1,5 +1,6 @@
 // import style from './style.css';
 import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
@@ -14,7 +15,7 @@ export class Root extends Component {
             <div className="ui grid container">
                 <div className="row">
                 <div className="four wide column">
-                    teset
+                    {this.props.children}
                 </div>
                 <div className="twelve wide column">
                     eee

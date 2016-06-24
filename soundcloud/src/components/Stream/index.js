@@ -1,14 +1,18 @@
 import React from 'react'
 
 
-export default function Stream ({ tracks = [] } => {
-    <div>
-        {
-            tracks.map((track) => {
-                return (
-                    <div className="stream-track">{track.title}</div>
-                )
-            })
-        }
-    </div>
-});
+function Stream({ tracks = [] }) {
+    return (
+        <div>
+            {
+                tracks.map((track, key) => {
+                    return (
+                        <div className="stream-track" key={key}>{track.title}</div>
+                    )
+                })
+            }
+        </div>
+    );
+}
+
+export default Stream

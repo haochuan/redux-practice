@@ -28,6 +28,15 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: 'src/dependencies', to: 'dependencies' }
         ]),
+        // common lib
+        new webpack.ProvidePlugin({
+            '$': 'jquery',
+            '_': 'lodash',
+            'ReactDOM': 'react-dom',
+            'React': 'react',
+            'Promise': 'bluebird',
+            'fetch': 'whatwg-fetch'
+        }),
         // new ExtractTextPlugin('[name]-[hash].min.css'),
         new webpack.optimize.UglifyJsPlugin({
             compressor: {

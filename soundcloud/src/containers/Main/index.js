@@ -1,5 +1,6 @@
 import style from './style.css';
 import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux';
 import Stream from '../../components/Stream'
 
 const tracks = [
@@ -23,8 +24,11 @@ export class Main extends Component {
     }
 }
 
-// Main.propTypes = {
-//     tracks: PropTypes.any
-// };
+function mapStateToProps(state) {
+    const tracks = state.track;
+    return {
+        tracks
+    }
+}
 
-export default Main;
+export default connect(mapStateToProps)(Stream);

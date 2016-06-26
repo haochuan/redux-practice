@@ -1,10 +1,7 @@
 import { combineReducers } from 'redux';
-import counter from './counter';
+import track from './track';
 
 
-const reducer = combineReducers({
-    counter
+export default combineReducers({
+    track
 });
-
-export default reducer;
-

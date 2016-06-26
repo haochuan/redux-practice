@@ -1,8 +1,8 @@
 import test from 'tape'
-import expect from 'expect'
+// import expect from 'expect'
 import React from 'react'
-import { shallow } from 'enzyme'
-import { Stream } from '../../src/components/Stream'
+import { shallow, mount, render } from 'enzyme'
+import Stream from './'
 
 
 test('[component]--->Stream', (it) => {
@@ -14,9 +14,7 @@ test('[component]--->Stream', (it) => {
 
     it.test('shows two elements', (t) => {
         const wrapper = shallow(<Stream {...props} />);
-        console.log('eeeee');
-        // console.log(wrapper.find('.track'));
-        // t.equal(wrapper.find('.track'), 2);
+        t.equal(wrapper.find('.stream-track').length, 2);
     });
     it.end();
 });

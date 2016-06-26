@@ -23,8 +23,8 @@ export class Main extends Component {
     }
 }
 
-Main.propTypes = {
-    tracks: PropTypes.any
-};
+// Main.propTypes = {
+//     tracks: PropTypes.any
+// };
 
 export default Main;

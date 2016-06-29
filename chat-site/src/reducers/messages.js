@@ -5,14 +5,16 @@ const initState = [];
 
 export default function messages(state = initState, action) {
     switch (action.type) {
-        case ActionTypes.LOAD_MESSAGE:
-            return loadMessage(state, action.index);
+        case ActionTypes.WRITE_MESSAGE:
+            return writeMessage(state, action.index);
+        case ActionTypes.SHOW_MESSAGE:
+            return showMessage(state, action.index);
         default: 
             return state;
     }
 }
 
-function loadMessage(state, messageIndex) {
+function writeMessage(state, messageIndex) {
     return [
         ...state,
         {
@@ -20,6 +22,15 @@ function loadMessage(state, messageIndex) {
             isLoading: true
         }
     ];
+}
+
+function showMessage(state, messageIndex) {
+    let newState = state;
+    newState[messageIndex] = {
+        content: MESSAGES[messageIndex],
+        isLoading: false
+    }
+    return newState;
 }
 
 // function showMessage(state)

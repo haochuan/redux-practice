@@ -1,3 +1,4 @@
-export const LOAD_MESSAGE = 'LOAD_MESSAGE';
+export const SHOW_MESSAGE = 'SHOW_MESSAGE';
 
+export const WRITE_MESSAGE = 'WRITE_MESSAGE';
 

@@ -18,7 +18,6 @@ export class MainWindow extends Component {
 
     render() {
         const { messages } = this.props
-        console.log(messages);
         return (
             <div>
                 {

@@ -1,21 +1,23 @@
 import React, { Component, PropTypes } from 'react';
 
-export default function Message(isLoading, text) {
-    // const { text, isLoading } = this.props;
-    // console.log(isLoading);
-    let message;
-    if (isLoading) {
-        message = (
-            <div>
-                Loading
-            </div>
-        );
-    } else {
-        message = (
-            <div>
-                {text}
-            </div>
-        );
-    }
-    return message;
+function Message({ messages = [] }) {
+    return (
+        <div>
+            {
+                messages.map((message, key) => {
+                    let content;
+                    if (message.isLoading === 1) {
+                        content = "......";
+                    } else {
+                        content = message.content;
+                    }
+                    return (
+                        <div key={key}>{content}</div>
+                    )
+                })
+            }
+        </div>
+    );
 }
+
+export default Message

@@ -20,13 +20,7 @@ export class MainWindow extends Component {
         const { messages } = this.props
         return (
             <div>
-                {
-                    messages.map((message, key) => {
-                        return (
-                            <Message key={key} isLoading={message.isLoading} text={message.content} />
-                        )
-                    })
-                }
+                <Message messages={messages} />
             </div>
         )
     }

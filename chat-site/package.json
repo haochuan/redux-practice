@@ -27,6 +27,7 @@
     "lodash": "^4.13.1",
     "morgan": "^1.6.1",
     "node-basicauth": "0.0.9",
+    "node-uuid": "^1.4.7",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-redux": "^4.4.1",

@@ -1,5 +1,6 @@
 import * as ActionTypes from '../constants/actionTypes';
 import { MESSAGES } from '../constants/messages';
+// import uuid from 'node-uuid';
 
 const initState = [];
 
@@ -18,19 +19,24 @@ function writeMessage(state, messageIndex) {
     return [
         ...state,
         {
+            id: messageIndex,
             content: MESSAGES[messageIndex],
-            isLoading: true
+            isLoading: 1
         }
     ];
 }
 
 function showMessage(state, messageIndex) {
-    let newState = state;
-    newState[messageIndex] = {
-        content: MESSAGES[messageIndex],
-        isLoading: false
-    }
-    return newState;
+    return state.map((item) => {
+        if (item.id === messageIndex) {
+            return {
+                ...item,
+                isLoading: 0
+            }
+        } else {
+            return item;
+        }
+    });
 }
 
 // function showMessage(state)

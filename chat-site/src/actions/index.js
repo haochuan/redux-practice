@@ -11,7 +11,7 @@ export function loadMessage() {
                 return function () {
                     writeMessage(dispatch, index);
                 }
-            }(index), 2000 * index);
+            }(index), 3000 * index);
             index++;
         }
     });

@@ -1,4 +1,4 @@
-// import style from './style.css';
+import style from './style.css';
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
@@ -19,7 +19,7 @@ export class MainWindow extends Component {
     render() {
         const { messages } = this.props
         return (
-            <div>
+            <div className="main">
                 <Message messages={messages} />
             </div>
         )

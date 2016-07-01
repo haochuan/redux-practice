@@ -1,0 +1,12 @@
+.message {
+    background-color: rgba(206,206,206,0.50);
+    margin: 0 0 .125rem 0;
+    padding: .5rem .85rem;
+    line-height: 1.25rem;
+    border-radius: 1.25rem;
+    max-width: 70vw;
+}
+
+.loading {
+    width: 10vw;;
+}

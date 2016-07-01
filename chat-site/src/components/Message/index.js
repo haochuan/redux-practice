@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import './style.css';
 
 function Message({ messages = [] }) {
     return (
@@ -6,13 +7,20 @@ function Message({ messages = [] }) {
             {
                 messages.map((message, key) => {
                     let content;
+                    let className = 'bubble';
                     if (message.isLoading === 1) {
                         content = "......";
+                        className += " loading"
                     } else {
                         content = message.content;
                     }
                     return (
-                        <div key={key}>{content}</div>
+                        <div className={className} key={key}>
+                            <div className="message">
+                                {content}
+                            </div>
+                        </div>
+
                     )
                 })
             }

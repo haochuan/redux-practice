@@ -7,18 +7,26 @@ function Message({ messages = [] }) {
             {
                 messages.map((message, key) => {
                     let content;
-                    let className = 'bubble';
                     if (message.isLoading === 1) {
-                        content = "......";
-                        className += " loading"
+                        content = (
+                            <div className="loading">
+                                <div className="dotWrapper">
+                                    <div className="dot"></div>
+                                    <div className="dot"></div>
+                                    <div className="dot"></div>
+                                </div>
+                            </div>
+                        );
                     } else {
-                        content = message.content;
+                        content = (
+                            <div className="message">
+                                {message.content}
+                            </div>
+                        );
                     }
                     return (
-                        <div className={className} key={key}>
-                            <div className="message">
-                                {content}
-                            </div>
+                        <div className="message-wrapper" key={key}>
+                            {content}
                         </div>
 
                     )

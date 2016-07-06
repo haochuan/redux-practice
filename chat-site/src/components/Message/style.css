@@ -22,6 +22,7 @@
 }
 
 .message {
+    overflow: hidden;
     display: none;
     background-color: rgba(206,206,206,0.50);
     margin: 0 0 .2rem 0;
@@ -29,9 +30,11 @@
     line-height: 1.25rem;
     border-radius: 1.25rem;
     border-radius: 1.25rem;
+    /*text-align: center;*/
 }
 
 .loading {
+    overflow: hidden;
     display: none;
     background-color: rgba(206,206,206,0.50);
     margin: 0 0 .125rem 0;
@@ -45,7 +48,7 @@
 .dot {
     display: inline-block;
     /*margin-top: 15px;*/
-    margin-left: .5rem;
+    /*margin-left: .5rem;*/
     width: .5rem;
     height: .5rem;
     border-radius: .5rem;
@@ -53,9 +56,11 @@
 }
 
 .loading .dot:nth-last-child(1) {
+    margin-left: .5rem;
     animation: loading .6s .3s linear infinite;
 }
 .loading .dot:nth-last-child(2) {
+    margin-left: .5rem;
     animation: loading .6s .2s linear infinite;
 }
 .loading .dot:nth-last-child(3) {
@@ -69,14 +74,14 @@
     }
 
     25% {
-        transform: translate(0, -5px);
+        transform: translate(0, -6px);
     }
     50% {
         transform: translate(0, 0px);
         background-color: #2E6087;
     }
     75% {
-        transform: translate(0, 5px);
+        transform: translate(0, 6px);
     }
     100% {
         transform: translate(0, 0px);

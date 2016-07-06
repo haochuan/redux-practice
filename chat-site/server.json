@@ -1,11 +1,11 @@
 {
     "apps": [{
-        "name": "Example App",
+        "name": "Chat-Site",
         "script": "server.js",
         "log_date_format": "YYYY-MM-DD HH:mm Z",
         "env": {
             "NODE_ENV": "production",
-            "PORT": 3000
+            "PORT": 2555
         }
     }]
 }

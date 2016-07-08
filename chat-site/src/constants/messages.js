@@ -107,10 +107,10 @@ export const MESSAGES = [
         ]
     },
     {
-        length: 7.5,
+        length: getTimeMessage().width,
         data: [
             {
-                content: "Have a nice day!",
+                content: getTimeMessage().text,
                 link: {
                     display: "",
                     url: ""
@@ -118,6 +118,10 @@ export const MESSAGES = [
             }
         ]
     }
-
-
 ];
+
+function getTimeMessage() {
+    const currentDate = new Date();
+    const currentHour = currentDate.getHours();
+    return currentHour < 18 ? {text: "Have a nice day!", width: 7.5} : {text: "Have a good night!", width: 8.5};
+}

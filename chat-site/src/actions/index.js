@@ -22,9 +22,9 @@ function writeMessage(dispatch, index) {
         type: ActionTypes.WRITE_MESSAGE,
         index: index
     }); 
-    // setTimeout(() => {
-    //     showMessage(dispatch, index);
-    // }, 2000);
+    setTimeout(() => {
+        showMessage(dispatch, index);
+    }, 2000);
 }
 
 function showMessage(dispatch, index) {

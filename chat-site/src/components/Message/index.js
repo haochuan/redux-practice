@@ -28,7 +28,7 @@ export class Message extends Component {
         }
         anime({
             targets: [selectorLoading],
-            width: ['5rem', '0rem'],
+            width: ['3rem', '0rem'],
             elasticity: 300,
             direction: 'reverse',
             duration: 600

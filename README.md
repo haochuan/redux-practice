@@ -10,6 +10,7 @@ Simple project using React and Redux
 - [ ] Metronome
 - [ ] Todo List
 - [x] H1B Lottery Simulation
+- [x] Chat-site
 
 # Note to get completed file from master to gh-pages
 

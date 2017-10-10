@@ -6,9 +6,9 @@ var port = process.env.PORT || 2555;
 app.use(express.static('build'));
 
 app.get('*', function(req, res) {
-    res.sendFile('index.html');
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(port, function () {
-    console.log('Chat Site on port ' + port + '!' );
+app.listen(port, function() {
+  console.log('Chat Site on port ' + port + '!');
 });
